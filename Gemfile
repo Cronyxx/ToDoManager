@@ -67,3 +67,10 @@ gem 'simple_form'
 # Adds support for bootstrap 4
 gem 'bootstrap', '~> 4.2.1'
 gem 'jquery-rails'
+gem 'tether-rails'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3' 
+  # add the line below
+  gem 'rails-assets-chosen'
+end

@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  
+  resources :tasks
+  root 'tasks#index'
+
+  # add this line to link tags to posts with the respective tag
+  get 'tags/:tag', to: 'posts#index', as: :tag
 end
