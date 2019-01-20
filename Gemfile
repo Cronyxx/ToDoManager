@@ -66,3 +66,4 @@ gem 'simple_form'
 
 # Adds support for bootstrap 4
 gem 'bootstrap', '~> 4.2.1'
+gem 'jquery-rails'
