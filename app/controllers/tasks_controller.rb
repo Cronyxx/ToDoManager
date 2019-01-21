@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+	before_action :require_user
+
 	def index
     	params[:tag] ? @tasks = Task.tagged_with(params[:tag]) : @tasks = Task.all
   	end

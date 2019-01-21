@@ -1,9 +1,24 @@
-<h1>Tasks Posts</h1>
+<h1>Tasks</h1>
+
+<%= form_tag(tasks_path, method: :get) do %>
+  <%= text_field_tag :tag, params[:tag] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
 <div class = "col-md-8 offset-2">
   <% @tasks.each do |task| %>
     <h2><%= task.title %></h2>
     <p><%= truncate(task.description, length: 50) %></p>
-    <p><small>Tags: <%= raw task.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small</p>
+    <p><small>Tags: <%= raw task.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small></p>
     <p><%= link_to "Read Task", task_path(task) %></p>
   <% end %>
 </div>
+
+<%= link_to 'New Task', new_task_path %>
+
+<% if current_user %> 
+  <ul> 
+    <li><%= current_user.email %></li> 
+    <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
+  </ul> 
+<% end %>

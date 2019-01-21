@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   root 'tasks#index'
 
   # add this line to link tags to posts with the respective tag
-  get 'tags/:tag', to: 'posts#index', as: :tag
+  get 'tags/:tag', to: 'tasks#index', as: :tag
 end

@@ -68,6 +68,7 @@ gem 'simple_form'
 gem 'bootstrap', '~> 4.2.1'
 gem 'jquery-rails'
 gem 'tether-rails'
+gem 'jquery-turbolinks'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3' 
