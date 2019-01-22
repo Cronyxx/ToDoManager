@@ -1,3 +1,9 @@
+<% if flash[:alert] %>
+      <div id="alert">
+         <%= flash[:alert] %> 
+      </div>
+<% end %>
+
 <%= simple_form_for(:session, url: login_path) do |f| %>
 	<%= f.input :email %>
 	<%= f.input :password %>

@@ -4,7 +4,7 @@
   <%= text_field_tag :tag, params[:tag] %>
   <%= submit_tag "Search" %>
 <% end %>
-
+<% if @tasks %>
 <div class = "col-md-8 offset-2">
   <% @tasks.each do |task| %>
     <h2><%= task.title %></h2>
@@ -13,6 +13,7 @@
     <p><%= link_to "Read Task", task_path(task) %></p>
   <% end %>
 </div>
+<% end %>
 
 <%= link_to 'New Task', new_task_path %>
 
