@@ -1,6 +1,7 @@
 class Task < ApplicationRecord
 	has_many :taggings
 	has_many :tags, through: :taggings
+	has_many :subtasks
 	belongs_to :user
 
 	def self.tagged_with(name)

@@ -9,3 +9,7 @@ Tag.create(name: "Recipe")
 Tag.create(name: "Travel")
 Tag.create(name: "Fashion/Beauty")
 Tag.create(name: "Humour")
+
+(1..100).each do |i|
+	Task.create!(title: "HelloWorld #{i}", description: "Work in progress", user_id: 7)
+end

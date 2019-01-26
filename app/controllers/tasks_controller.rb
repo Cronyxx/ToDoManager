@@ -6,12 +6,12 @@ class TasksController < ApplicationController
     @search_tag = params[:tag]
     if !@search_tag.blank?
       if Tag.exists?(:name => @search_tag)
-        @tasks = Task.tagged_with(@search_tag).where(user_id: current_user.id)
+        @tasks = Task.tagged_with(@search_tag).where(user_id: current_user.id).order(:title).page(params[:page]).per(5)
       else
         @tasks = []
       end
     else
-      @tasks = current_user.tasks
+      @tasks = current_user.tasks.order(:title).page(params[:page]).per(5)
     end
   end
  
@@ -43,7 +43,7 @@ class TasksController < ApplicationController
 	private
 
 	def task_params
-    	params.require(:task).permit(:title, :description, :tag_list, :tag, { tag_ids: [] }, :tag_ids, :user_id)
+    params.require(:task).permit(:title, :description, :tag_list, :tag, { tag_ids: [] }, :tag_ids, :user_id)
   end
 
 end

@@ -1,0 +1,23 @@
+
+ 	<% if subtask.completed? %>
+  		<div class="complete">
+   			<%= link_to complete_task_subtask_path(@task, subtask.id), method: :patch do %>
+            <i style="opacity: 0.4;" class="fa fa-check"></i>
+          <% end %>
+  		</div>
+		<div class="subtask">
+   			<p style="opacity: 0.4;"><strike><%= subtask.description %></strike></p>
+  	</div>
+ 	<% else %>
+  	   <div class="complete">
+   			<%= link_to complete_task_subtask_path(@task, subtask.id), method: :patch do %>
+            <i class="fa fa-circle-thin"></i>
+          <% end %>
+      </div>
+  		<div class="subtask">
+   			<p><%= subtask.description %></p>
+  		</div>
+ 	<% end %>
+  <%= link_to task_subtask_path(@task, subtask.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+    <i class="fa fa-trash"></i>
+    <% end %>

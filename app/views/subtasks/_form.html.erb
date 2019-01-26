@@ -1,0 +1,4 @@
+<%= form_for([@task, @task.subtasks.build]) do |f| %>
+	<%= f.text_field :description, placeholder: "New Subtask" %>
+	<%= f.submit %>
+<% end %>

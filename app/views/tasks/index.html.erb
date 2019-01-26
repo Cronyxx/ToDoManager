@@ -1,10 +1,6 @@
 <h1>Tasks</h1>
 
-<%= form_tag(tasks_path, method: :get) do %>
-  <%= text_field_tag :tag, params[:tag] %>
-  <%= submit_tag "Search" %>
-<% end %>
-<% if @tasks %>
+<% if !@tasks.blank? %>
 <div class = "col-md-8 offset-2">
   <% @tasks.each do |task| %>
     <h2><%= task.title %></h2>
@@ -13,7 +9,9 @@
     <p><%= link_to "Read Task", task_path(task) %></p>
   <% end %>
 </div>
+<%= paginate @tasks %>
 <% end %>
+
 
 <%= link_to 'New Task', new_task_path %>
 
@@ -23,3 +21,4 @@
     <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
   </ul> 
 <% end %>
+

@@ -20,3 +20,4 @@
 //= require jquery.turbolinks
 //= require_tree .
 //= require chosen
+//= require bootstrap

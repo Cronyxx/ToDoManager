@@ -1,5 +1,20 @@
 <div class = 'col-md-8 offset-2'>
-  <h1><%=@task.title%></h1>
-  <p><%=@task.description%></p>
-  <p><small>Tags: <%= raw @task.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small</p>
+<p id="notice"><%= notice %></p>
+<h2 class="task_title"><%= @task.title %></h2>
+<p class="task_sub_title"><%= @task.description %></p>
+<p><small>Tags: <%= raw @task.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small</p>
+</div>
+
+<div id="subtask_wrapper">
+	<%= render @task.subtasks %>
+	<div id="form">
+		<%= render "subtasks/form" %>
+	</div>
+</div>
+
+<div class="links">
+	<%= link_to 'Edit', edit_task_path(@task) %> |
+	<%= link_to 'Delete', task_path(@task), method: :delete, data: { confirm: "Are you sure?" } %> |
+	<%= link_to 'Back', tasks_path %>
+</div>
 </div>
