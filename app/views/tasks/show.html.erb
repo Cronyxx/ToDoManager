@@ -1,9 +1,13 @@
-<div class = 'col-md-8 offset-2'>
-	<h2 class="task_title"><%= @task.title %></h2>
-	<p class="task_sub_title"><%= @task.description %></p>
-	<p>Dead Line: <%= @task.dead_line %></p>
-	<p><small>Tags: <%= raw @task.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small</p>
-</div>
+<h1 class="task_title"><%= @task.title %></h1>
+
+<p class="task_sub_title">Description: <%= @task.description %></p>
+
+<p>Deadline: <%= @task.dead_line %></p>
+	
+<p><small>Tags: <%= raw @task.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small</p>
+
+<br>
+<br>
 
 <div id="subtask_wrapper">
 	<%= render @task.subtasks %>
