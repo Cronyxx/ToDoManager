@@ -1,24 +1,10 @@
 <h1>Tasks</h1>
 
-<% if !@tasks.blank? %>
-<div class = "col-md-8 offset-2">
-  <% @tasks.each do |task| %>
-    <h2><%= task.title %></h2>
-    <p><%= truncate(task.description, length: 50) %></p>
-    <p><small>Tags: <%= raw task.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small></p>
-    <p><%= link_to "Read Task", task_path(task) %></p>
-  <% end %>
+<% if !@tasks.blank?%>
+<div class = "col-md-8 offset-1">
+    <%= render 'tasks' %>
 </div>
 <%= paginate @tasks %>
 <% end %>
 
-
-<%= link_to 'New Task', new_task_path %>
-
-<% if current_user %> 
-  <ul> 
-    <li><%= current_user.email %></li> 
-    <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
-  </ul> 
-<% end %>
 

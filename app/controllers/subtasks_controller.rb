@@ -28,12 +28,11 @@ class SubtasksController < ApplicationController
 	end
 
 	def set_subtask
-		params[:task].permit(:description)
+		@subtask = @task.subtasks.find(params[:id])
 	end
 
 	def subtask_params
 		params[:subtask].permit(:description)
 	end
-
 
 end

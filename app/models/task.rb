@@ -1,7 +1,7 @@
 class Task < ApplicationRecord
-	has_many :taggings
+	has_many :taggings, dependent: :destroy
 	has_many :tags, through: :taggings
-	has_many :subtasks
+	has_many :subtasks, dependent: :destroy
 	belongs_to :user
 
 	def self.tagged_with(name)
@@ -20,5 +20,9 @@ class Task < ApplicationRecord
 		self.tags = names.split(',').map do |n|
 			Tag.where(name: n.strip).first_or_create!
 		end
+	end
+
+	def completed?
+		!completed_at.blank?
 	end
 end

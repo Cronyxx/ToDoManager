@@ -7,6 +7,6 @@
 <%= simple_form_for(:session, url: login_path) do |f| %>
 	<%= f.input :email %>
 	<%= f.input :password %>
-	<%= f.submit 'Log in' %>
+	<%= f.submit 'Log in', class: 'btn btn-lg btn-primary float-left' %>
+	<%= link_to "Sign up", signup_path, class: 'btn btn-lg btn-primary float-right' %>
 <% end %>
-<%= link_to "Sign up", signup_path %>

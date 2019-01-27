@@ -11,7 +11,7 @@
  	<% else %>
   	   <div class="complete">
    			<%= link_to complete_task_subtask_path(@task, subtask.id), method: :patch do %>
-            <i class="fa fa-circle-thin"></i>
+            <i class="fa fa-check" aria-hidden="true"></i>
           <% end %>
       </div>
   		<div class="subtask">

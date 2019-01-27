@@ -1,9 +1,2 @@
-<div class = 'col-md-8 offset-2'>
-  <h1 class = "text-center">New Task</h1>
-  <%= simple_form_for @task, url: tasks_path do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, input_html: {multiple: true} %>
-    <%= f.submit "Next", class: 'btn btn-lg btn-primary float-right' %>
-  <% end %>
-</div>
+<%= render 'form', task: @task %>
+

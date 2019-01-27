@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'tasks/archive' => 'tasks#archive'
   get 'signup' => 'users#new'
   resources :users
 
@@ -13,6 +14,9 @@ Rails.application.routes.draw do
   # add this line to link tags to posts with the respective tag
   get 'tags/:tag', to: 'tasks#index', as: :tag
   resources :tasks do
+    member do
+      patch :complete
+    end
     resources :subtasks do
       member do
         patch :complete
@@ -21,4 +25,5 @@ Rails.application.routes.draw do
   end
 
   get 'tags' => 'tasks#index'
+  patch 'tasks/:id/edit' => 'tasks#update'
 end

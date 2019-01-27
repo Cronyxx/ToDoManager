@@ -1,0 +1,10 @@
+<% @tasks.each do |task| %>
+	<h2>
+		<%= link_to task.title, task_path(task) %>
+	</h2>
+      <p>
+      	Description: <%= truncate(task.description, length: 50) %>
+      </p>
+      <p>Deadline: <%= task.dead_line %>
+      <small>Tags: <%= raw task.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small></p>
+<% end %>
