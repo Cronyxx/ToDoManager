@@ -1,8 +1,6 @@
 # README
 Name: Yeo Tong
 
-Matric No: A0180313U
-
 Heroku link: https://peaceful-escarpment-69135.herokuapp.com/login
 
 This README would normally document whatever steps are necessary to get the
